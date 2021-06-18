@@ -90,7 +90,7 @@ return [
         'array'   => 'El :attribute debe tener al menos :min elementos.',
     ],
     'multiple_of'          => 'El campo :attribute debe ser múltiplo de :value',
-    'not_in'               => ':attribute es inválido.',
+    'not_in'               => 'El campo :attribute es inválido.',
     'not_regex'            => 'El formato del campo :attribute no es válido.',
     'numeric'              => ':attribute debe ser numérico.',
     'password'             => 'La contraseña es incorrecta.',
@@ -184,5 +184,11 @@ return [
         'title'                 => 'título',
         'username'              => 'usuario',
         'year'                  => 'año',
+        'cost' => 'costo',
+        'alerts' => 'alertas',
+        'bardcode' => 'código',
+        'category_id' => 'categoría',
+        'type' => 'tipo',
+        'value' => 'valor'
     ],
 ];

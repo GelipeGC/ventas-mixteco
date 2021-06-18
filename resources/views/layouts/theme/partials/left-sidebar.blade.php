@@ -16,21 +16,21 @@
         <!--- Sidemenu -->
         <ul class="metismenu side-nav">
             <li class="side-nav-item">
-                <a href="javascript: void(0);" class="side-nav-link">
+                <a href="{{url('categories')}}" class="side-nav-link">
                     <i class="uil-apps"></i>
                     <span> Categorías </span>
                 </a>
 
             </li>
             <li class="side-nav-item">
-                <a href="javascript: void(0);" class="side-nav-link">
+                <a href="{{url('products')}}" class="side-nav-link">
                     <i class="uil-tag-alt"></i>
                     <span> Productos </span>
                 </a>
 
             </li>
             <li class="side-nav-item">
-                <a href="javascript: void(0);" class="side-nav-link">
+                <a href="{{url('sales')}}" class="side-nav-link">
                     <i class="uil-shopping-cart-alt"></i>
                     <span> Ventas </span>
                 </a>
@@ -60,7 +60,7 @@
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="javascript: void(0);" class="side-nav-link">
+                <a href="{{url('coins')}}" class="side-nav-link">
                     <i class="uil-usd-circle"></i>
                     <span> Monedas </span>
                 </a>
