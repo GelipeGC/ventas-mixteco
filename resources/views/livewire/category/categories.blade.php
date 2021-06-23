@@ -14,7 +14,7 @@
                             </div>
                             <div class="col-lg-6 col-md-4 col-xs-12 d-flex">
                                 <div class="ml-auto">
-                                <a href="javascript:void(0)" class="btn btn-primary bg-dark" data-toggle="modal" data-target="#theModal">Agregar</a>
+                                <a href="javascript:void(0)" class="btn bg-dark text-white" data-toggle="modal" data-target="#theModal">Agregar</a>
                                 </div>
                             </div>
                         </div>
@@ -25,7 +25,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered table-striped mt-1">
-                                <thead class="text-white" style="background: #3B3F5C">
+                                <thead class="text-white bg-dark">
                                     <tr>
                                         <th class="table-th text-white">DESCRIPCIÓN</th>
                                         <th class="table-th text-white">IMAGEN</th>

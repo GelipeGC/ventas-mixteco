@@ -1,10 +1,10 @@
 <!-- ========== Left Sidebar Start ========== -->
-<div class="left-side-menu">
+<div class="left-side-menu bg-dark" style="background:#313a46">
 
     <div class="slimscroll-menu" id="left-side-menu-container">
 
         <!-- LOGO -->
-        <a href="index.html" class="logo text-center">
+        <a href="index.html" class="logo text-center bg-dark">
             <span class="logo-lg">
                 TAQUERÍA EL MIXTECO
             </span>
@@ -14,7 +14,7 @@
         </a>
 
         <!--- Sidemenu -->
-        <ul class="metismenu side-nav">
+        <ul class="metismenu side-nav bg-dark">
             <li class="side-nav-item">
                 <a href="{{url('categories')}}" class="side-nav-link">
                     <i class="uil-apps"></i>

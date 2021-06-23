@@ -3,9 +3,9 @@
     <button type="button" wire:click.prevent="resetUI()" class="btn btn-light" data-dismiss="modal">Cerrar</button>
     @if ($selected_id < 1)
 
-        <button type="button" wire:click.prevent="Store()" class="btn btn-primary">Guardar</button>
+        <button type="button" wire:click.prevent="Store()" class="btn btn-dark">Guardar</button>
         @else
-        <button type="button" wire:click.prevent="Update()" class="btn btn-primary">Actualizar</button>
+        <button type="button" wire:click.prevent="Update()" class="btn btn-dark">Actualizar</button>
 
     @endif
 </div>
