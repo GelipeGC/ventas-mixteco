@@ -38,10 +38,10 @@
                                 </td>
                                 <td class="text-center">
                                     <a href="javascript:void(0)" class="btn btn-dark mtmobile" title="Edit">
-                                        <i class="fa fa-edit"></i>
+                                        <i class="fa uil-edit"></i>
                                     </a>
                                     <a href="javascript:void(0)" class="btn btn-dark" title="Delete">
-                                        <i class="fa fa-trash"></i>
+                                        <i class="uil-trash-alt"></i>
                                     </a>
                                 </td>
                             </tr>

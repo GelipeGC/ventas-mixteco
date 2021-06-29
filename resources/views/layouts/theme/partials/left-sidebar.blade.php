@@ -36,19 +36,19 @@
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="javascript: void(0);" class="side-nav-link">
+                <a href="{{url('roles')}}" class="side-nav-link">
                     <i class="uil-keyhole-square"></i>
                     <span> Roles </span>
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="javascript: void(0);" class="side-nav-link">
+                <a href="{{url('permissions')}}" class="side-nav-link">
                     <i class="uil-lock-open-alt"></i>
                     <span> Permisos </span>
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="javascript: void(0);" class="side-nav-link">
+                <a href="{{url('asignar')}}" class="side-nav-link">
                     <i class="uil-eye"></i>
                     <span> Asignar </span>
                 </a>

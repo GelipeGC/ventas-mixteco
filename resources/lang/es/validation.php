@@ -189,6 +189,8 @@ return [
         'bardcode' => 'código',
         'category_id' => 'categoría',
         'type' => 'tipo',
-        'value' => 'valor'
+        'value' => 'valor',
+        'roleName' => 'role',
+        'permissionName' => 'permiso'
     ],
 ];

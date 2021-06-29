@@ -16,3 +16,9 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('js/keypress-2.1.5.min.js')}}"></script>
+<script src="{{ asset('js/onscan.min.js')}}"></script>
+@include('livewire.sales.scripts.shortcuts')
+@include('livewire.sales.scripts.events')
+@include('livewire.sales.scripts.general')
+@include('livewire.sales.scripts.scan')

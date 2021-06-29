@@ -2,8 +2,11 @@
 
 use App\Http\Livewire\Sale;
 use App\Http\Livewire\Coins;
+use App\Http\Livewire\Roles;
+use App\Http\Livewire\Asignar;
 use App\Http\Livewire\Products;
 use App\Http\Livewire\Categories;
+use App\Http\Livewire\Permissions;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,3 +32,6 @@ Route::get('categories', Categories::class);
 Route::get('products', Products::class);
 Route::get('coins', Coins::class);
 Route::get('sales', Sale::class);
+Route::get('roles', Roles::class);
+Route::get('permissions', Permissions::class);
+Route::get('asignar', Asignar::class);
