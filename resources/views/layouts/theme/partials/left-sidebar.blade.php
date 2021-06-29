@@ -54,7 +54,7 @@
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="javascript: void(0);" class="side-nav-link">
+                <a href="{{url('users')}}" class="side-nav-link">
                     <i class="uil-users-alt"></i>
                     <span> Usuarios </span>
                 </a>

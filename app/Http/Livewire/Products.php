@@ -171,5 +171,7 @@ class Products extends Component
         $this->category_id = 'Elegir';
         $this->alerts = '';
         $this->stock = '';
+        $this->resetValidation();
+        $this->resetPage();
     }
 }

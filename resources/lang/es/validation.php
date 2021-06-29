@@ -191,6 +191,7 @@ return [
         'type' => 'tipo',
         'value' => 'valor',
         'roleName' => 'role',
-        'permissionName' => 'permiso'
+        'permissionName' => 'permiso',
+        'profile' => 'perfil',
     ],
 ];
