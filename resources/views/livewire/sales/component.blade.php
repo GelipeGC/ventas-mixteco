@@ -1,7 +1,3 @@
-<div>
-    <style>
-
-    </style>
     <div class="row mt-3">
         <div class="col-sm-12 col-md-8">
             <!-- DETALLES -->
@@ -15,7 +11,6 @@
 
         </div>
     </div>
-</div>
 <script src="{{ asset('js/keypress-2.1.5.min.js')}}"></script>
 <script src="{{ asset('js/onscan.min.js')}}"></script>
 @include('livewire.sales.scripts.shortcuts')

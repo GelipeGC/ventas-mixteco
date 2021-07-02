@@ -66,7 +66,7 @@
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="javascript: void(0);" class="side-nav-link">
+                <a href="{{url('cashout')}}" class="side-nav-link">
                     <i class="uil-notes"></i>
                     <span> Arqueos </span>
                 </a>

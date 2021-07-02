@@ -5,6 +5,7 @@ use App\Http\Livewire\Coins;
 use App\Http\Livewire\Roles;
 use App\Http\Livewire\Users;
 use App\Http\Livewire\Asignar;
+use App\Http\Livewire\Cashout;
 use App\Http\Livewire\Products;
 use App\Http\Livewire\Categories;
 use App\Http\Livewire\Permissions;
@@ -37,4 +38,5 @@ Route::get('roles', Roles::class);
 Route::get('permissions', Permissions::class);
 Route::get('asignar', Asignar::class);
 Route::get('users', Users::class);
+Route::get('cashout', Cashout::class);
 
