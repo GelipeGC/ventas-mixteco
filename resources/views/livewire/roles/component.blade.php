@@ -8,13 +8,18 @@
                             <b>{{ $componentName}} | {{$pageTitle}}</b>
                         </h4>
                     </div>
+                    @can('Role_Create')
+
                     <div class="col-lg-6 col-md-4 col-xs-12 d-flex">
                         <div class="ml-auto">
                         <a href="javascript:void(0)" class="btn btn-primary bg-dark" data-toggle="modal" data-target="#theModal">Agregar</a>
                         </div>
                     </div>
+                    @endcan
                 </div>
+                @can('Role_Search')
                 @include('common.searchBox')
+                @endcan
             </div>
 
             <div class="card-body">
@@ -36,13 +41,19 @@
                                         <h6>{{ $role->name}}</h6>
                                     </td>
                                     <td class="text-center">
+                                        @can('Role_Update')
+
                                         <a href="javascript:void(0)" wire:click="Edit({{$role->id}})" class="btn btn-dark mtmobile" title="Editar registro">
                                             <i class="fa uil-edit"></i>
 
                                         </a>
+                                        @endcan
+                                        @can('Role_Destroy')
+
                                         <a href="javascript:void(0)" onclick="Confirm('{{$role->id}}')" class="btn btn-dark" title="Eliminar registro">
                                             <i class="uil-trash-alt"></i>
                                         </a>
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach

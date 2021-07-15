@@ -31,23 +31,40 @@ Route::get('/', function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function(){
+    Route::group(['middleware' => ['permission:Category_List','permission:Category_Create']], function () {
+        Route::get('categories', Categories::class);
+    });
+    Route::group(['middleware' => ['permission:Product_List']], function () {
+        Route::get('products', Products::class);
+    });
+    Route::group(['middleware' => ['permission:Coin_List']], function () {
+        Route::get('coins', Coins::class);
+    });
+    Route::group(['middleware' => ['permission:Sale_List']], function () {
+        Route::get('sales', Sale::class);
+    });
+    Route::group(['middleware' => ['role:super-admin']], function () {
+        Route::get('roles', Roles::class);
+        Route::get('permissions', Permissions::class);
+        Route::get('asignar', Asignar::class);
+    });
+    Route::group(['middleware' => ['permission:User_List']], function () {
+        Route::get('users', Users::class);
+    });
+    Route::group(['middleware' => ['permission:Cashout_List']], function () {
+        Route::get('cashout', Cashout::class);
+    });
+    Route::group(['middleware' => ['permission:Report_List']], function () {
+        Route::get('reports', Reports::class);
+    });
 
-Route::get('categories', Categories::class);
-Route::get('products', Products::class);
-Route::get('coins', Coins::class);
-Route::get('sales', Sale::class);
-Route::get('roles', Roles::class);
-Route::get('permissions', Permissions::class);
-Route::get('asignar', Asignar::class);
-Route::get('users', Users::class);
-Route::get('cashout', Cashout::class);
-Route::get('reports', Reports::class);
-
-//Reportes PDF
-Route::get('/report/pdf/{userId}/{reportType}/{dateFrom}/{dateTo}', [ExportController::class, 'reportPDF']);
-Route::get('/report/pdf/{userId}/{reportType}', [ExportController::class, 'reportPDF']);
+    //Reportes PDF
+    Route::get('/report/pdf/{userId}/{reportType}/{dateFrom}/{dateTo}', [ExportController::class, 'reportPDF']);
+    Route::get('/report/pdf/{userId}/{reportType}', [ExportController::class, 'reportPDF']);
 
 
-//Reportes Excel
-Route::get('/report/excel/{userId}/{reportType}/{dateFrom}/{dateTo}', [ExportController::class, 'reportExcel']);
-Route::get('/report/excel/{userId}/{reportType}', [ExportController::class, 'reportExcel']);
+    //Reportes Excel
+    Route::get('/report/excel/{userId}/{reportType}/{dateFrom}/{dateTo}', [ExportController::class, 'reportExcel']);
+    Route::get('/report/excel/{userId}/{reportType}', [ExportController::class, 'reportExcel']);
+});

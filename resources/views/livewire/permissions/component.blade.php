@@ -8,13 +8,18 @@
                             <b>{{ $componentName}} | {{$pageTitle}}</b>
                         </h4>
                     </div>
+                    @can('Permission_Create')
+
                     <div class="col-lg-6 col-md-4 col-xs-12 d-flex">
                         <div class="ml-auto">
                         <a href="javascript:void(0)" class="btn btn-primary bg-dark" data-toggle="modal" data-target="#theModal">Agregar</a>
                         </div>
                     </div>
+                    @endcan
                 </div>
-                @include('common.searchBox')
+                @can('Permission_Search')
+                    @include('common.searchBox')
+                @endcan
             </div>
 
             <div class="card-body">
@@ -36,13 +41,17 @@
                                         <h6>{{ $permission->name}}</h6>
                                     </td>
                                     <td class="text-center">
+                                        @can('Permission_Update')
                                         <a href="javascript:void(0)" wire:click="Edit({{$permission->id}})" class="btn btn-dark mtmobile" title="Editar registro">
                                             <i class="fa uil-edit"></i>
 
                                         </a>
+                                        @endcan
+                                        @can('Permission_Destroy')
                                         <a href="javascript:void(0)" onclick="Confirm('{{$permission->id}}')" class="btn btn-dark" title="Eliminar registro">
                                             <i class="uil-trash-alt"></i>
                                         </a>
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach

@@ -9,6 +9,10 @@
        window.livewire.on('no-stock', msg => {
             noty(msg, 2)
        });
+       window.livewire.on('sale-ok', msg => {
+            noty(msg);
+            $(':focus').blur(); //Quitar focus en efectivo despues de guardar venta para seguir escaneando
+       });
        window.livewire.on('sale-error', msg => {
             noty(msg, 2)
        });

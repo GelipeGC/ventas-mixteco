@@ -23,9 +23,10 @@
                             @endforeach
                         </select>
                     </div>
+                    @can('Asignar_Sync')
                     <button wire:click.prevent="SyncAll()" type="button" class="btn btn-dark mbmobile inblock mr-5">Sincronizar todos</button>
                     <button onclick="Revocar()" type="button" class="btn btn-dark mbmobile mr-5">Revocar todos</button>
-
+                    @endcan
                 </div>
                 <div class="row mt-3">
                     <div class="col-sm-12">

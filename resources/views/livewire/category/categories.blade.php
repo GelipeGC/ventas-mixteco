@@ -13,13 +13,16 @@
                                 </h4>
                             </div>
                             <div class="col-lg-6 col-md-4 col-xs-12 d-flex">
-                                <div class="ml-auto">
-                                <a href="javascript:void(0)" class="btn bg-dark text-white" data-toggle="modal" data-target="#theModal">Agregar</a>
-                                </div>
+                                @can('Category_Create')
+                                    <div class="ml-auto">
+                                    <a href="javascript:void(0)" class="btn bg-dark text-white" data-toggle="modal" data-target="#theModal">Agregar</a>
+                                    </div>
+                                @endcan
                             </div>
                         </div>
-
-                        @include('common.searchBox')
+                        @can('Category_Search')
+                            @include('common.searchBox')
+                        @endcan
                     </div>
 
                     <div class="card-body">
@@ -43,16 +46,22 @@
                                                 </span>
                                             </td>
                                             <td class="text-center">
-                                                <a href="javascript:void(0)"
-                                                    wire:click="Edit({{$category->id}})"
-                                                    class="btn btn-dark mtmobile" title="Edit">
-                                                    <i class="fa uil-edit"></i>
-                                                </a>
-                                                <a href="javascript:void(0)"
-                                                    onclick="Confirm('{{$category->id}}', '{{$category->products->count()}}')"
-                                                    class="btn btn-dark" title="Delete">
-                                                    <i class="uil-trash-alt"></i>
-                                                </a>
+                                                @can('Category_Update')
+
+                                                    <a href="javascript:void(0)"
+                                                        wire:click="Edit({{$category->id}})"
+                                                        class="btn btn-dark mtmobile" title="Edit">
+                                                        <i class="fa uil-edit"></i>
+                                                    </a>
+                                                @endcan
+                                                @can('Category_Destroy')
+
+                                                    <a href="javascript:void(0)"
+                                                        onclick="Confirm('{{$category->id}}', '{{$category->products->count()}}')"
+                                                        class="btn btn-dark" title="Delete">
+                                                        <i class="uil-trash-alt"></i>
+                                                    </a>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

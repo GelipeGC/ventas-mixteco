@@ -12,11 +12,14 @@
                                     <b>{{ $componentName}} | {{$pageTitle }}</b>
                                 </h4>
                             </div>
+                            @can('Coin_Create')
+
                             <div class="col-lg-6 col-md-4 col-xs-12 d-flex">
                                 <div class="ml-auto">
                                 <a href="javascript:void(0)" class="btn text-white bg-dark" data-toggle="modal" data-target="#theModal">Agregar</a>
                                 </div>
                             </div>
+                            @endcan
                         </div>
 
                         @include('common.searchBox')
@@ -45,16 +48,22 @@
                                                 </span>
                                             </td>
                                             <td class="text-center">
+                                                @can('Coin_Update')
+
                                                 <a href="javascript:void(0)"
                                                     wire:click="Edit({{$coin->id}})"
                                                     class="btn btn-dark mtmobile" title="Edit">
                                                     <i class="fa uil-edit"></i>
                                                 </a>
+                                                @endcan
+                                                @can('Coin_Destroy')
+
                                                 <a href="javascript:void(0)"
                                                     onclick="Confirm('{{$coin->id}}')"
                                                     class="btn btn-dark" title="Delete">
                                                     <i class="uil-trash-alt"></i>
                                                 </a>
+                                                @endcan
                                             </td>
                                         </tr>
                                     @endforeach

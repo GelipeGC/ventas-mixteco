@@ -8,13 +8,17 @@
                             <b>{{ $componentName}} | {{ $pageTitle }}</b>
                         </h4>
                     </div>
+                    @can('User_Create')
                     <div class="col-lg-6 col-md-4 col-xs-12 d-flex">
                         <div class="ml-auto">
                         <a href="javascript:void(0)" class="btn btn-primary bg-dark" data-toggle="modal" data-target="#theModal">Agregar</a>
                         </div>
                     </div>
+                    @endcan
                 </div>
+                @can('User_Search')
                 @include('common.searchBox')
+                @endcan
             </div>
 
             <div class="card-body">
@@ -50,12 +54,16 @@
                                         @endif
                                     </td>
                                     <td class="text-center">
+                                        @can('User_Update')
                                         <a wire:click="Edit({{$user->id}})" href="javascript:void(0)" class="btn btn-dark mtmobile" title="Edit">
                                             <i class="fa uil-edit"></i>
                                         </a>
+                                        @endcan
+                                        @can('User_Destroy')
                                         <a onclick="Confirm('{{$user->id}}')" href="javascript:void(0)" class="btn btn-dark" title="Delete">
                                             <i class="uil-trash-alt"></i>
                                         </a>
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach
