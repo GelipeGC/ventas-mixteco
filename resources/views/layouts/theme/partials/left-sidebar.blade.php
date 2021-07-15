@@ -72,7 +72,7 @@
                 </a>
             </li>
             <li class="side-nav-item">
-                <a href="javascript: void(0);" class="side-nav-link">
+                <a href="{{url('reports')}}" class="side-nav-link">
                     <i class="uil-graph-bar"></i>
                     <span> Reportes </span>
                 </a>

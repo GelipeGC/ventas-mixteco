@@ -26,10 +26,7 @@ class DenominationSeeder extends Seeder
             'type' => 'BILLETE',
             'value' => 100
         ]);
-        Denomination::create([
-            'type' => 'BILLETE',
-            'value' => 100
-        ]);
+        
         Denomination::create([
             'type' => 'BILLETE',
             'value' => 50

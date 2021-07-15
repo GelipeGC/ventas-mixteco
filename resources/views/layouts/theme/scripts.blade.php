@@ -7,6 +7,7 @@
 <script src="{{ asset('assets/js/vendor/jquery-jvectormap-world-mill-en.js')}}"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{ asset('js/jquery.nicescroll.min.js')}}"></script>
+<script src="{{ asset('assets/js/plugins/flatpickr.js')}}"></script>
 
 
 <!-- third party js ends -->

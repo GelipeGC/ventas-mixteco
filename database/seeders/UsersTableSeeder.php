@@ -1,0 +1,30 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\User;
+use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
+
+class UsersTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $role = Role::create([
+            'name' => 'Administrador'
+        ]);
+
+        User::create([
+            'name' => 'Guadalupe',
+            'phone' => '9831232102',
+            'email' => 'admin@admin.com',
+            'profile' => $role->name,
+            'password' => bcrypt('secret123')
+        ]);
+    }
+}

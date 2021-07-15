@@ -14,8 +14,8 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        foreach (range(1, 9) as $key) {
-            Category::factory()->create();
-        }
+        Category::create([
+            'name' => 'Tacos'
+        ]);
     }
 }
