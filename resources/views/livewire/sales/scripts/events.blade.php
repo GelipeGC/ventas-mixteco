@@ -11,7 +11,7 @@
        });
        window.livewire.on('sale-ok', msg => {
             noty(msg);
-            $(':focus').blur(); //Quitar focus en efectivo despues de guardar venta para seguir escaneando
+            $(':focus').blur(); //Quitar focus en efectivo despues de guardar venta para seguir escaneandoachis
        });
        window.livewire.on('sale-error', msg => {
             noty(msg, 2)
