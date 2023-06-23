@@ -2,17 +2,20 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Sale as Venta;
 use App\Models\Product;
 use Livewire\Component;
+use App\Traits\CartTrait;
 use App\Models\SaleDetail;
 use App\Models\Denomination;
+use App\Models\Sale as Venta;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Darryldecode\Cart\Facades\CartFacade as Cart;
 
 class Sale extends Component
 {
+    use CartTrait;
+
     public $total, $itemQuantity, $cash, $change;
 
     protected $listeners = [
@@ -46,118 +49,32 @@ class Sale extends Component
 
     public function ScanCode($barcode, $cant = 1)
     {
-        $product = Product::where('barcode', $barcode)->first();
+        $this->codeScan($barcode, $cant);
+    }
 
-        if ($product == null || empty($product)) {
-            $this->emit('scan-notfound', 'El producto no está registrado');
+    public function increaseQty(Product $product, $cant = 1)
+    {
+        $this->IncreaseQuantity($product, $cant);
+
+    }
+
+    public function updateQty(Product $product, $cant = 1)
+    {
+        if ($cant <= 0) {
+            $this->removeItem($product->id);
         }else {
-            if ($this->InCart($product->id)) {
-                $this->increaseQty($product->id);
-                return;
-            }
-
-            if ($product->stock < 1) {
-                $this->emit('no-stock', 'Stock insuficiente');
-                return;
-            }
-
-            Cart::add($product->id, $product->name, $product->price, $cant, $product->image);
-            $this->total = Cart::getTotal();
-            $this->itemQuantity = Cart::getTotalQuantity();
-
-            $this->emit('scan-ok', 'Producto agregado');
-
+            $this->updateQuantity($product, $cant);
         }
     }
 
-    public function InCart($productId)
-    {
-        $exist = Cart::get($productId);
-
-        return ($exist) ? true : false;
-    }
-
-    public function increaseQty($productId, $cant = 1)
-    {
-        $title = '';
-        $product = Product::find($productId);
-        $exist = Cart::get($productId);
-
-         if ($exist) {
-             $title = 'Cantidad actualizada';
-         } else {
-             $title = 'Producto agregado';
-         }
-        if ($exist) {
-            if ($product->stock < ($cant + $exist->quantity)) {
-                $this->emit('no-stock', 'Stock insuficiente');
-                return;
-            }
-        }
-
-        Cart::add($product->id, $product->name, $product->price, $cant, $product->image);
-        $this->total = Cart::getTotal();
-        $this->itemQuantity = Cart::getTotalQuantity();
-        $this->emit('scan-ok', $title);
-
-    }
-
-    public function updateQty($productId, $cant = 1)
-    {
-        $title = '';
-        $product = Product::find($productId);
-        $exist = Cart::get($productId);
-        if ($exist) {
-            $title = 'Cantidad actualizada';
-        } else {
-            $title = 'Producto agregado';
-        }
-
-        if ($exist) {
-            if ($product->stock < $cant) {
-                $this->emit('no-stock', 'Stock insuficiente');
-                return;
-            }
-        }
-        $this->removeItem($productId);
-
-        if ($cant > 0) {
-            Cart::add($product->id, $product->name, $product->price, $cant, $product->image);
-            $this->total = Cart::getTotal();
-            $this->itemQuantity = Cart::getTotalQuantity();
-            $this->emit('scan-ok', $title);
-        }
-    }
-    public function removeItem($productId)
-    {
-        Cart::remove($productId);
-        $this->total = Cart::getTotal();
-        $this->itemQuantity = Cart::getTotalQuantity();
-        $this->emit('scan-ok', 'Producto eliminado');
-    }
     public function decreaseQty($productId)
     {
-        $item = Cart::get($productId);
-        Cart::remove($productId);
-
-        $newQty = ($item->quantity - 1);
-
-        if ($newQty > 0) {
-            Cart::add($item->id, $item->name,$item->price, $newQty,$item->attributes[0]);
-        }
-        $this->total = Cart::getTotal();
-        $this->itemQuantity = Cart::getTotalQuantity();
-        $this->emit('scan-ok', 'Cantidad actualizada');
+        $this->decreaseQuantity($productId);
     }
+
     public function clearCart()
     {
-        Cart::clear();
-        $this->cash = 0;
-        $this->change = 0;
-        $this->total = Cart::getTotal();
-        $this->itemQuantity = Cart::getTotalQuantity();
-        $this->emit('scan-ok', 'Carrito vacío');
-
+        $this->trashCart();
     }
 
     public function saveSale()

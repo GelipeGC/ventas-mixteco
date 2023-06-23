@@ -55,7 +55,7 @@
         <div class="form-group">
             <label>Asignar role</label>
             <select wire:model="profile" class="form-control">
-                <option value="Eligir" disabled>Elegir</option>
+                <option value="Eligir" selected>Elegir</option>
                 @foreach ($roles as $role)
                     <option value="{{$role->name}}">{{ $role->name}}</option>
                 @endforeach

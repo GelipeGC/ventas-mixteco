@@ -4,7 +4,7 @@
     <div class="slimscroll-menu" id="left-side-menu-container">
 
         <!-- LOGO -->
-        <a href="index.html" class="logo text-center bg-dark">
+        <a href="{{ url('home')}}" class="logo text-center bg-dark">
             <span class="logo-lg">
                 TAQUERÍA EL MIXTECO
             </span>
