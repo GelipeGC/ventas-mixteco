@@ -15,20 +15,10 @@ class ProductSeeder extends Seeder
     public function run()
     {
         Product::create([
-            'name' => 'Pastor',
+            'name' => 'Fundas',
             'cost' => 12,
             'price' => 12,
             'barcode' => '1001',
-            'stock' => 10000,
-            'alerts' => 10,
-            'category_id' => 1,
-            'image' => 'image.jpg'
-        ]);
-        Product::create([
-            'name' => 'Bisteck',
-            'cost' => 17,
-            'price' => 17,
-            'barcode' => '1002',
             'stock' => 10000,
             'alerts' => 10,
             'category_id' => 1,

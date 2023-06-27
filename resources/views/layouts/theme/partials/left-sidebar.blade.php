@@ -6,10 +6,10 @@
         <!-- LOGO -->
         <a href="{{ url('home')}}" class="logo text-center bg-dark">
             <span class="logo-lg">
-                TAQUERÍA EL MIXTECO
+                SMART ZONE
             </span>
             <span class="logo-sm">
-                MIXTECO
+                SMART ZONE
             </span>
         </a>
 
